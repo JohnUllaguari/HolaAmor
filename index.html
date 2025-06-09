@@ -9,74 +9,102 @@
 <body>
 
   <!-- Pantalla de bienvenida -->
-  <div id="welcome-screen">
-    <h2>💖 Hola, mi amor 💖</h2>
-    <p>Haz clic para entrar y escuchar tu sorpresa 🎶</p>
-    <button onclick="startExperience()">Entrar</button>
+  <div id="bienvenida" class="bienvenida">
+    <h1>Bienvenida, mi amor 💖</h1>
+    <button id="btnEntrar">Entrar</button>
   </div>
 
-  <!-- Contenido principal oculto inicialmente -->
-  <div class="container" id="main-content" style="display: none;">
-    <audio id="music" loop>
+  <!-- Contenido principal -->
+  <div id="contenido" style="display: none;">
+    <audio id="musica" loop>
       <source src="audio/Drake - Passionfruit (Instrumental).mp3" type="audio/mpeg" />
     </audio>
 
-    <h1>🎉 Feliz Cumpleaños, mi amor 🎉</h1>
-    <p class="mensaje">
-      Hoy es tu cumpleaños, y no hay regalo más grande que tú. Espero la pases muy bonito en este día especial. Te amo con todo mi corazón. 💕
-    </p>
-
-    <div class="galeria">
-      <div class="item">
-        <img src="img/foto1.jpeg" alt="Primera Foto Juntos" />
-        <p>Primera Foto Juntos</p>
-      </div>
-      <div class="item">
-        <img src="img/foto2.jpeg" alt="En tu casita" />
-        <p>En tu casita</p>
-      </div>
-      <div class="item">
-        <img src="img/foto3.jpeg" alt="Pintando en Samanes" />
-        <p>Pintando en Samanes</p>
-      </div>
-      <div class="item">
-        <img src="img/foto4.jpeg" alt="En el barquito" />
-        <p>En el barquito</p>
-      </div>
-      <div class="item">
-        <video class="video-item" controls>
-          <source src="video/video2.mp4" type="video/mp4" />
-        </video>
-        <p>Un video especial</p>
-      </div>
-      <div class="item">
-        <img src="img/foto5.jpeg" alt="Foto Random" />
-        <p>Foto Random</p>
-      </div>
-      <div class="item">
-        <img src="img/foto6.jpeg" alt="Faro" />
-        <p>Faro</p>
-      </div>
-      <div class="item">
-        <img src="img/foto7.jpeg" alt="En mi casita" />
-        <p>En mi casita</p>
-      </div>
+    <div class="decoraciones">
+      <span class="estrella"></span>
+      <span class="estrella"></span>
+      <span class="estrella"></span>
+      <span class="burbuja"></span>
+      <span class="burbuja"></span>
     </div>
 
-    <p class="firma">Sé que te gustan las cartas... así que esta es para ti. <br> ❤️ John</p>
+    <div class="corazones">
+      <div class="corazon"></div>
+      <div class="corazon"></div>
+      <div class="corazon"></div>
+      <div class="corazon"></div>
+      <div class="corazon"></div>
+    </div>
+
+    <div class="container">
+      <h1 class="titulo-animado">🎉 Feliz Cumpleaños, mi amor 🎉</h1>
+      <p class="mensaje maquina-escribir">
+        Hoy es tu cumpleaños, y no hay regalo más grande que tú. Espero la pases muy bonito en este día especial. Te amo con todo mi corazón. 💕
+      </p>
+
+      <div class="galeria-scroll">
+        <div class="galeria-horizontal">
+          <figure>
+            <img src="img/foto1.jpeg" alt="Primera Foto Juntos" />
+            <figcaption>Primera Foto Juntos</figcaption>
+          </figure>
+          <figure>
+            <img src="img/foto2.jpeg" alt="En tu casita" />
+            <figcaption>En tu casita</figcaption>
+          </figure>
+          <figure>
+            <img src="img/foto3.jpeg" alt="Pintando en Samanes" />
+            <figcaption>Pintando en Samanes</figcaption>
+          </figure>
+          <figure>
+            <img src="img/foto4.jpeg" alt="En el barquito" />
+            <figcaption>En el barquito</figcaption>
+          </figure>
+          <figure>
+            <video controls>
+              <source src="video/video2.mp4" type="video/mp4" />
+              Tu navegador no soporta videos.
+            </video>
+            <figcaption>Un momento especial</figcaption>
+          </figure>
+          <figure>
+            <img src="img/foto5.jpeg" alt="Foto Random" />
+            <figcaption>Foto Random</figcaption>
+          </figure>
+          <figure>
+            <img src="img/foto6.jpeg" alt="Faro" />
+            <figcaption>Faro</figcaption>
+          </figure>
+          <figure>
+            <img src="img/foto7.jpeg" alt="En mi casita" />
+            <figcaption>En mi casita</figcaption>
+          </figure>
+        </div>
+      </div>
+      <p class="firma">
+        Sé que te gustan las cartas, y aunque no pueda darte una física, aquí está mi carta virtual. <br />
+        ❤️ John ❤️ 
+      </p>
+
+      <div class="agradecimiento">
+        Gracias por existir y llenar mi vida de luz. ¡Te mereces todo lo hermoso del mundo! 🌸✨
+      </div>
+    </div>
   </div>
 
   <script>
-    function startExperience() {
-      document.getElementById("welcome-screen").style.display = "none";
-      document.getElementById("main-content").style.display = "block";
-      const audio = document.getElementById("music");
-      audio.play().catch(error => {
-        console.log("El usuario no permitió el audio:", error);
+    const btnEntrar = document.getElementById('btnEntrar');
+    const bienvenida = document.getElementById('bienvenida');
+    const contenido = document.getElementById('contenido');
+    const musica = document.getElementById('musica');
+
+    btnEntrar.addEventListener('click', () => {
+      bienvenida.style.display = 'none';
+      contenido.style.display = 'block';
+      musica.play().catch(() => {
       });
-    }
+    });
   </script>
 
 </body>
 </html>
-
