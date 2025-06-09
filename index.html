@@ -7,56 +7,76 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="audio/Drake - Passionfruit (Instrumental).mp3" type="audio/mpeg" />
-  </audio>
 
-  <div class="container">
+  <!-- Pantalla de bienvenida -->
+  <div id="welcome-screen">
+    <h2>💖 Hola, mi amor 💖</h2>
+    <p>Haz clic para entrar y escuchar tu sorpresa 🎶</p>
+    <button onclick="startExperience()">Entrar</button>
+  </div>
+
+  <!-- Contenido principal oculto inicialmente -->
+  <div class="container" id="main-content" style="display: none;">
+    <audio id="music" loop>
+      <source src="audio/Drake - Passionfruit (Instrumental).mp3" type="audio/mpeg" />
+    </audio>
+
     <h1>🎉 Feliz Cumpleaños, mi amor 🎉</h1>
     <p class="mensaje">
       Hoy es tu cumpleaños, y no hay regalo más grande que tú. Espero la pases muy bonito en este día especial. Te amo con todo mi corazón. 💕
     </p>
 
     <div class="galeria">
-        <div class="item">
-            <img src="img/foto1.jpeg" alt="Primera Foto Juntos" />
-            <p>Primera Foto Juntos</p>
-        </div>
-        <div class="item">
-            <img src="img/foto2.jpeg" alt="En tu casita" />
-            <p>En tu casita</p>
-        </div>
-        <div class="item">
-            <img src="img/foto3.jpeg" alt="Pintando en Samanes" />
-            <p>Pintando en Samanes</p>
-        </div>
-        <div class="item">
-            <img src="img/foto4.jpeg" alt="En el barquito" />
-            <p>En el barquito</p>
-        </div>
-        <div class="item">
-            <video controls class="video-item">
-            <source src="video/video2.mp4" type="video/mp4" />
-            </video>
-            <p>Siempre Juntites</p>
-        </div>
-        <div class="item">
-            <img src="img/foto5.jpeg" alt="Foto Ramdon" />
-            <p>Foto Random</p>
-        </div>
-        <div class="item">
-            <img src="img/foto6.jpeg" alt="Faro" />
-            <p>En el Faro</p>
-        </div>
-        <div class="item">
-            <img src="img/foto7.jpeg" alt="En mi casita" />
-            <p>En mi casita</p>
-        </div>
-        </div>
+      <div class="item">
+        <img src="img/foto1.jpeg" alt="Primera Foto Juntos" />
+        <p>Primera Foto Juntos</p>
+      </div>
+      <div class="item">
+        <img src="img/foto2.jpeg" alt="En tu casita" />
+        <p>En tu casita</p>
+      </div>
+      <div class="item">
+        <img src="img/foto3.jpeg" alt="Pintando en Samanes" />
+        <p>Pintando en Samanes</p>
+      </div>
+      <div class="item">
+        <img src="img/foto4.jpeg" alt="En el barquito" />
+        <p>En el barquito</p>
+      </div>
+      <div class="item">
+        <video class="video-item" controls>
+          <source src="video/video2.mp4" type="video/mp4" />
+        </video>
+        <p>Un video especial</p>
+      </div>
+      <div class="item">
+        <img src="img/foto5.jpeg" alt="Foto Random" />
+        <p>Foto Random</p>
+      </div>
+      <div class="item">
+        <img src="img/foto6.jpeg" alt="Faro" />
+        <p>Faro</p>
+      </div>
+      <div class="item">
+        <img src="img/foto7.jpeg" alt="En mi casita" />
+        <p>En mi casita</p>
+      </div>
+    </div>
 
-
-    <p class="firma">Se que te gustan las cartas, y como no podre darte una real, pero te dare esta carta virtual. <br> ❤️ John</p>
+    <p class="firma">Sé que te gustan las cartas... así que esta es para ti. <br> ❤️ John</p>
   </div>
+
+  <script>
+    function startExperience() {
+      document.getElementById("welcome-screen").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+      const audio = document.getElementById("music");
+      audio.play().catch(error => {
+        console.log("El usuario no permitió el audio:", error);
+      });
+    }
+  </script>
+
 </body>
 </html>
 
